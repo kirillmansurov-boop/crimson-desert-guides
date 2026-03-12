@@ -1,0 +1,45 @@
+baseURL = "https://crimson-guides.pages.dev/"  # потом заменишь на реальный от Cloudflare
+languageCode = "ru-ru"
+title = "Crimson Desert Гайды и Секреты"
+theme = "PaperMod"
+
+[params]
+
+  author = "Твой ник"
+  description = "Гайды, секреты, билды и прокачка в Crimson Desert"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  defaultTheme = "auto"
+  mainSections = ["posts"]
+  ShowRecentPosts = true
+  RecentPostsNumber = 5
+  ShowAllPagesInLists = true
+  listView = "card"
+  ShowSectionInList = true
+  ShowSectionPosts = true
+  ShowAllPosts = true
+  ShowPagination = true
+  paginate = 10
+  showRecentInHome = true
+  showAllPostsInSection = true
+
+
+[params.homeInfoParams]
+  Title = "Crimson Desert Гайды и Секреты"
+  Content = "Свежие гайды по прокачке, Abyss Artifacts, skill mimicry и секретам Pywel. Первая статья ниже!"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Гайды"
+    url = "/posts/"
+    weight = 1
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
