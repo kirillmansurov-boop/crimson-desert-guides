@@ -6,7 +6,7 @@ draft: false
 description: "Как быстро апгрейдить оружие и броню, вставлять Abyss Gear в сокеты."
 tags: ["crimson-desert", "гайд", "экипировка", "abyss-gear", "крафт"]
 cover:
-  image: "/images/10.jpg"
+  image: "/images/10.webp"
   alt: "Апгрейд экипировки"
   hiddenInList: false
   hiddenInSingle: false

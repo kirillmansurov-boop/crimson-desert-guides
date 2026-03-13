@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по skill mimicry — как учить навыки врагов и NPC в Crimson Desert и быстро усиливаться."
 tags: ["crimson-desert", "гайд", "skill-mimicry", "прокачка", "combat"]
 cover:
-  image: "/images/55.jpg"
+  image: "/images/55.webp"
   alt: "Skill Mimicry в бою"
   hiddenInList: false
   hiddenInSingle: false

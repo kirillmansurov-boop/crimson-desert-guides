@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по крафту и экономике — как фармить ресурсы, крафтить и продавать."
 tags: ["crimson-desert", "гайд", "крафт", "экономика", "abyss-gear"]
 cover:
-  image: "/images/12.jpg"
+  image: "/images/12.webp"
   alt: "Крафт в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

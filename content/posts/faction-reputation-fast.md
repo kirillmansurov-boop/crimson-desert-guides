@@ -6,7 +6,7 @@ draft: false
 description: "Реальный гайд: как быстро поднять репутацию Greymanes и других фракций в первые часы после релиза."
 tags: ["crimson-desert", "гайд", "репутация", "фракции", "greymanes", "прокачка"]
 cover:
-  image: "/images/rep.jpg"     
+  image: "/images/rep.png"     
   alt: "Фракции и репутация в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

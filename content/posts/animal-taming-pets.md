@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по теймингу питомцев — собаки, кошки, медведи и как они помогают."
 tags: ["crimson-desert", "гайд", "питомцы", "тейминг", "компаньоны"]
 cover:
-  image: "/images/13.jpg"
+  image: "/images/13.webp"
   alt: "Питомец в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

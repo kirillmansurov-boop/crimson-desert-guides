@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по репутации с фракциями — как поднять с Black Bears и другими, чтобы открывать торговлю и квесты."
 tags: ["crimson-desert", "гайд", "репутация", "black-bears", "фракции"]
 cover:
-  image: "/images/8.jpg"
+  image: "/images/8.webp"
   alt: "Black Bears в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

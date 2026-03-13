@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по мировым событиям — фракционные войны, боссы и как получить жирный лут."
 tags: ["crimson-desert", "гайд", "мировые-события", "pve", "фарм"]
 cover:
-  image: "/images/6.jpg"
+  image: "/images/6.webp"
   alt: "Мировое событие в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

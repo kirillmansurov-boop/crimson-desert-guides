@@ -6,7 +6,7 @@ draft: false
 description: "Стратегии по первым боссам — что делать и какие навыки качать."
 tags: ["crimson-desert", "гайд", "боссы", "стратегия", "первые-часы"]
 cover:
-  image: "/images/stoneback.jpg"
+  image: "/images/stoneback.webp"
   alt: "Первый босс в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

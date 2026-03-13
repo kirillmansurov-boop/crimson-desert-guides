@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по Greymane Camp — как строить лагерь, отправлять миссии и рекрутировать компаньонов."
 tags: ["crimson-desert", "гайд", "greymanes", "компаньоны", "лагерь"]
 cover:
-  image: "/images/graymane.jpg"
+  image: "/images/graymane.webp"
   alt: "Greymane Camp"
   hiddenInList: false
   hiddenInSingle: false

@@ -6,7 +6,7 @@ draft: false
 description: "Реальный гайд: как быстро собирать Abyss Artifacts после релиза и не просрать первые часы."
 tags: ["crimson-desert", "гайд", "abyss-artifacts", "первые-часы", "прокачка"]
 cover:
-  image: "/images/11.jpg"     
+  image: "/images/11.webp"     
   caption: "Abyss Artifacts в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

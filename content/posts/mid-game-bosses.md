@@ -6,7 +6,7 @@ draft: false
 description: "Стратегии по боссам посложнее — Reed Devil, White Horn, Staglord и другие."
 tags: ["crimson-desert", "гайд", "боссы", "средняя-игра", "стратегия"]
 cover:
-  image: "/images/boss1.jpg"
+  image: "/images/boss1.webp"
   alt: "Средний босс Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

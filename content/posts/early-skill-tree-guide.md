@@ -6,7 +6,7 @@ draft: false
 description: "Как правильно качать skill tree на старте — какие ветки и узлы качать первыми."
 tags: ["crimson-desert", "гайд", "skill-tree", "прокачка", "abyss-artifacts"]
 cover:
-  image: "/images/skilltree.jpg"
+  image: "/images/skilltree.png"
   alt: "Skill Tree в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
