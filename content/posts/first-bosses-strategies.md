@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Первые боссы в Crimson Desert: как не сдохнуть и пройти за 1 попытку"
 slug: "first-bosses-strategies"
@@ -7,7 +6,7 @@ draft: false
 description: "Стратегии по первым боссам — что делать и какие навыки качать."
 tags: ["crimson-desert", "гайд", "боссы", "стратегия", "первые-часы"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/stoneback.jpg"
   alt: "Первый босс в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

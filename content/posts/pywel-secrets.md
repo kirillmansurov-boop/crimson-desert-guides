@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Скрытые секреты Pywel в Crimson Desert: где искать и что дают"
 slug: "pywel-secrets"
@@ -7,7 +6,7 @@ draft: false
 description: "Все скрытые секреты мира Pywel — локации, которые дают тонну артефактов и шмота."
 tags: ["crimson-desert", "гайд", "секреты", "pywel", "исследование"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/7.jpg"
   alt: "Скрытые секреты Pywel"
   hiddenInList: false
   hiddenInSingle: false

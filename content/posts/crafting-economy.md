@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Крафт и экономика в Crimson Desert: как быстро делать деньги и шмот"
 slug: "crafting-economy"
@@ -7,7 +6,7 @@ draft: false
 description: "Гайд по крафту и экономике — как фармить ресурсы, крафтить и продавать."
 tags: ["crimson-desert", "гайд", "крафт", "экономика", "abyss-gear"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/12.jpg"
   alt: "Крафт в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

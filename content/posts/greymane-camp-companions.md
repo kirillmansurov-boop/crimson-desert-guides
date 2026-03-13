@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Greymane Camp и компаньоны: как быстро прокачать лагерь и рекрутировать союзников"
 slug: "greymane-camp-companions"
@@ -7,7 +6,7 @@ draft: false
 description: "Гайд по Greymane Camp — как строить лагерь, отправлять миссии и рекрутировать компаньонов."
 tags: ["crimson-desert", "гайд", "greymanes", "компаньоны", "лагерь"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/graymane.jpg"
   alt: "Greymane Camp"
   hiddenInList: false
   hiddenInSingle: false

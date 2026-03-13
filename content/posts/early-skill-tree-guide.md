@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Лучшие ветки skill tree в первые 10 часов Crimson Desert"
 slug: "early-skill-tree-guide"
@@ -7,7 +6,7 @@ draft: false
 description: "Как правильно качать skill tree на старте — какие ветки и узлы качать первыми."
 tags: ["crimson-desert", "гайд", "skill-tree", "прокачка", "abyss-artifacts"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/skilltree.jpg"
   alt: "Skill Tree в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

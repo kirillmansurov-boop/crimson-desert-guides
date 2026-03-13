@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Апгрейд экипировки и Abyss Gear в Crimson Desert: сокеты и крафт"
 slug: "gear-upgrade-sockets"
@@ -7,7 +6,7 @@ draft: false
 description: "Как быстро апгрейдить оружие и броню, вставлять Abyss Gear в сокеты."
 tags: ["crimson-desert", "гайд", "экипировка", "abyss-gear", "крафт"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/10.jpg"
   alt: "Апгрейд экипировки"
   hiddenInList: false
   hiddenInSingle: false

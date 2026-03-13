@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Где лучше фармить Abyss Artifacts в первые 10 часов Crimson Desert"
 slug: "abyss-artifacts-farm-early"

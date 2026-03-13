@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Средние боссы в Crimson Desert: Reed Devil, White Horn и как их валить"
 slug: "mid-game-bosses"
@@ -7,7 +6,7 @@ draft: false
 description: "Стратегии по боссам посложнее — Reed Devil, White Horn, Staglord и другие."
 tags: ["crimson-desert", "гайд", "боссы", "средняя-игра", "стратегия"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/boss1.jpg"
   alt: "Средний босс Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false

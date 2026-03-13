@@ -6,7 +6,7 @@ draft: false
 description: "Гайд по маунтам и драконам — где найти, как приручить и почему это имба уже в первые часы."
 tags: ["crimson-desert", "гайд", "маунты", "драконы", "путешествия"]
 cover:
-  image: "/images/crimson-desert-featured.jpg"
+  image: "/images/9.jpg"
   alt: "Дракон в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
