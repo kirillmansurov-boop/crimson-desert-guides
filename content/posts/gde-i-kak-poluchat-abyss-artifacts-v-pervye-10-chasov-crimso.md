@@ -6,8 +6,8 @@ draft: false
 description: "В этом гайде мы рассмотрим, как эффективно получать Abyss Artifacts в первые 10 часов игры Crimson Desert от Pearl Abyss, что поможет вам быстрее развивать своего персонажа."
 tags: ["crimson-desert", "гайд", "abyss-artifacts", "первые-часы", "прогресс"]
 cover:
-  image: "/images/gde-i-kak-poluchat-abyss-artifacts-v-pervye-10-chasov-crimso.jpg"
-  alt: "Иллюстрация к гайду Где и как получать Abyss Artifacts в первые 10 часов Crimson Desert"
+  image: "/images/11.jpg"     
+  caption: "локация Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
 ---
