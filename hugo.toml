@@ -1,56 +1,41 @@
-baseURL = "/"                  # для локального теста и большинства хостингов ок; если домен — поменяй на "https://твой-домен.ru/"
+baseURL = "/"                  
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
 
 [pagination]
   pagerSize = 10
+
 enableRobotsTXT = true
 
 [params]
-  author = "Kirill"          # ← поменяй на свой
+  author = "Kirill"
   description = "Гайды, секреты, билды и прокачка в Crimson Desert"
   
-  defaultTheme = "auto"        # auto / light / dark
+  defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true       # хлебные крошки
-  ShowCodeCopyButtons = true   # кнопка копировать код
-  ShowToc = true               # оглавление в постах
-  comments = false             # если потом подключишь — true
+  ShowBreadCrumbs = true       
+  ShowCodeCopyButtons = true
+  ShowToc = true               
+  comments = true             
+  listView = "card"            # карточки постов
+  ShowRecentPosts = true
+  RecentPostsNumber = 6
   
   mainSections = ["posts"]
-  ShowRecentPosts = true
-  RecentPostsNumber = 5
-  
-  # вид списка постов (карточки / список)
-  # listView = "card"          # ← если хочешь именно карточки — раскомментируй
 
-  # для главной страницы — информационный блок
-[params.homeInfoParams]
-  Title = "Crimson Desert Гайды и Секреты"
-  Content = "Свежие гайды по прокачке, Abyss Artifacts, skill mimicry и секретам Pywel. Первая статья ниже!"
-
-  # можно добавить соцсети (они появятся под текстом на главной)
-[[params.socialIcons]]
-  #   name = "github"
-  #   url = "https://github.com/твой-ник"
-  # [[params.socialIcons]]
-  name = "telegram"
-  url = "https://t.me/Olefinsd"
-
-  # обложка (cover) для постов и страниц
 [params.cover]
-  hidden = false               # показывать обложку
-  hiddenInList = false         # показывать в списках
-  hiddenInSingle = false       # показывать в самих постах
-  responsiveImages = true      # адаптивные изображения (рекомендуется)
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+  responsiveImages = true
 
 [minify]
   disableHTML = false
   disableXML  = false
-  disableJSON = true           # часто ломается schema, поэтому отключаем
+  disableJSON = true
   disableCSS  = false
   disableJS   = false
   minifyOutput = true
@@ -72,7 +57,7 @@ enableRobotsTXT = true
 
 [permalinks]
   posts = "/posts/:slug/"
-  post  = "/posts/:slug/"      # на всякий случай оба варианта
+  post  = "/posts/:slug/"
 
 [imaging]
   quality = 75
