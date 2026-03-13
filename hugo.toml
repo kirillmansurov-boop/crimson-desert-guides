@@ -1,42 +1,58 @@
-baseURL = "/"
+baseURL = "/"                  # для локального теста и большинства хостингов ок; если домен — поменяй на "https://твой-домен.ru/"
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
 
+paginate = 10
+enableRobotsTXT = true
+
 [params]
-  author = "Твой ник"
+  author = "Kirill"          # ← поменяй на свой
   description = "Гайды, секреты, билды и прокачка в Crimson Desert"
+  
+  defaultTheme = "auto"        # auto / light / dark
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
-  defaultTheme = "auto"
+  ShowBreadCrumbs = true       # хлебные крошки
+  ShowCodeCopyButtons = true   # кнопка копировать код
+  ShowToc = true               # оглавление в постах
+  comments = false             # если потом подключишь — true
+  
   mainSections = ["posts"]
   ShowRecentPosts = true
   RecentPostsNumber = 5
-  ShowAllPagesInLists = true
-  listView = "card"                    # ← карточки в списке постов
-  ShowSectionInList = true
-  ShowSectionPosts = true
-  ShowAllPosts = true
-  ShowPagination = true
-  paginate = 10
-  showRecentInHome = true
-  showAllPostsInSection = true
-  homeInfoParams:
-    coverImage = "/images/crimson-banner-wide.jpg"
+  
+  # вид списка постов (карточки / список)
+  # listView = "card"          # ← если хочешь именно карточки — раскомментируй
 
-  # Исправлено: параметры cover через точку
-  cover.hiddenInList   = false
-  cover.hiddenInSingle = false
-  cover.hidden         = false
-
-  # Для лучшей совместимости с Cloudflare
-  enableRobotsTXT = true
-  enableInlineShortcodes = true
-
+  # для главной страницы — информационный блок
 [params.homeInfoParams]
   Title = "Crimson Desert Гайды и Секреты"
   Content = "Свежие гайды по прокачке, Abyss Artifacts, skill mimicry и секретам Pywel. Первая статья ниже!"
+
+  # можно добавить соцсети (они появятся под текстом на главной)
+[[params.socialIcons]]
+  #   name = "github"
+  #   url = "https://github.com/твой-ник"
+  # [[params.socialIcons]]
+  name = "telegram"
+  url = "https://t.me/Olefinsd"
+
+  # обложка (cover) для постов и страниц
+[params.cover]
+  hidden = false               # показывать обложку
+  hiddenInList = false         # показывать в списках
+  hiddenInSingle = false       # показывать в самих постах
+  responsiveImages = true      # адаптивные изображения (рекомендуется)
+
+[minify]
+  disableHTML = false
+  disableXML  = false
+  disableJSON = true           # часто ломается schema, поэтому отключаем
+  disableCSS  = false
+  disableJS   = false
+  minifyOutput = true
 
 [menu]
   [[menu.main]]
@@ -53,21 +69,11 @@ theme = "PaperMod"
   section = ["HTML", "RSS"]
   page = ["HTML"]
 
-# Важно для правильных URL постов (чтобы /posts/slug/ работал без .html)
 [permalinks]
   posts = "/posts/:slug/"
-  post  = "/posts/:slug/"
+  post  = "/posts/:slug/"      # на всякий случай оба варианта
 
-# Оптимизация изображений (если используешь много картинок)
 [imaging]
   quality = 75
   resampleFilter = "lanczos"
   anchor = "smart"
-[minify]
-  disableHTML = false
-  disableXML  = false
-  disableJSON = true      # ← отключает минификацию только JSON, чтобы не ломался schema
-  disableCSS  = false
-  disableJS   = false
-  minifyOutput = true     # остальное минифицируется
-  
