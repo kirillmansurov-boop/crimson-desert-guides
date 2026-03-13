@@ -1,9 +1,9 @@
+baseURL = "/"                          # ← Самое важное! Только слеш, Cloudflare сам подставит домен
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
 
 [params]
-
   author = "Твой ник"
   description = "Гайды, секреты, билды и прокачка в Crimson Desert"
   ShowReadingTime = true
@@ -14,7 +14,7 @@ theme = "PaperMod"
   ShowRecentPosts = true
   RecentPostsNumber = 5
   ShowAllPagesInLists = true
-  listView = "card"
+  listView = "card"                    # ← карточки в списке постов
   ShowSectionInList = true
   ShowSectionPosts = true
   ShowAllPosts = true
@@ -23,6 +23,15 @@ theme = "PaperMod"
   showRecentInHome = true
   showAllPostsInSection = true
 
+  # Разрешаем показ обложек в списках и на страницах постов
+  cover:
+    hiddenInList = false
+    hiddenInSingle = false
+    hidden = false
+
+  # Для лучшей совместимости с Cloudflare
+  enableRobotsTXT = true
+  enableInlineShortcodes = true
 
 [params.homeInfoParams]
   Title = "Crimson Desert Гайды и Секреты"
@@ -42,3 +51,13 @@ theme = "PaperMod"
   home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
   page = ["HTML"]
+
+# Важно для правильных URL постов (чтобы /posts/slug/ работал без .html)
+[permalinks]
+  posts = "/posts/:slug/"
+
+# Оптимизация изображений (если используешь много картинок)
+[imaging]
+  quality = 75
+  resampleFilter = "lanczos"
+  anchor = "smart"
