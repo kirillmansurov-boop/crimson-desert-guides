@@ -55,6 +55,7 @@ theme = "PaperMod"
 # Важно для правильных URL постов (чтобы /posts/slug/ работал без .html)
 [permalinks]
   posts = "/posts/:slug/"
+  post  = "/posts/:slug/"
 
 # Оптимизация изображений (если используешь много картинок)
 [imaging]
