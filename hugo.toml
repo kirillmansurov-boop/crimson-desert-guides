@@ -1,4 +1,3 @@
-baseURL = "https://crimson-guides.pages.dev/"  # потом заменишь на реальный от Cloudflare
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
