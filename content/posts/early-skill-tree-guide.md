@@ -10,6 +10,7 @@ cover:
   alt: "Skill Tree в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Как работает skill tree

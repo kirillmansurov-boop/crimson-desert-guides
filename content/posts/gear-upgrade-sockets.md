@@ -10,6 +10,7 @@ cover:
   alt: "Апгрейд экипировки"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Как работает апгрейд

@@ -10,6 +10,7 @@ cover:
   alt: "Фракции и репутация в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Репутация в Crimson Desert — это важно?

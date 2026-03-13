@@ -10,6 +10,7 @@ cover:
   alt: "Мировое событие в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Какие бывают события

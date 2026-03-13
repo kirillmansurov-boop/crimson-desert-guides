@@ -10,6 +10,7 @@ cover:
   alt: "Скрытые секреты Pywel"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Топ-5 скрытых мест, которые надо найти в первые 10 часов

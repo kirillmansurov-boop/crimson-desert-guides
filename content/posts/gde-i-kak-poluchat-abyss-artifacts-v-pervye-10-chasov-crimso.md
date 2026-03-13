@@ -10,6 +10,7 @@ cover:
   caption: "Abyss Artifacts в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Введение

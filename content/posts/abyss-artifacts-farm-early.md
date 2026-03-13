@@ -14,6 +14,7 @@ cover:
     alt: "Фарм Abyss Artifacts в Crimson Desert"
     hiddenInList: false
     hiddenInSingle: false
+    responsiveImages: true
 ---
 
 ## Введение

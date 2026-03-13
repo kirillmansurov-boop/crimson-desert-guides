@@ -10,6 +10,7 @@ cover:
   alt: "Средний босс Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Первые средние боссы (7–12 часов)

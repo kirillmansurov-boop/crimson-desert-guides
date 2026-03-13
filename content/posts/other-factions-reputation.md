@@ -10,6 +10,7 @@ cover:
   alt: "Black Bears в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Зачем качать репутацию с другими фракциями

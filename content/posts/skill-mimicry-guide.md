@@ -10,6 +10,7 @@ cover:
   alt: "Skill Mimicry в бою"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Что такое Skill Mimicry и зачем оно нужно

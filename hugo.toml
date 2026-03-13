@@ -1,7 +1,20 @@
-baseURL = "/"                  
+baseURL = "/"
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
+
+# Меню — все пункты здесь, без дублирования и без лишнего [menu]
+[[menu.main]]
+  identifier = "posts"
+  name = "Гайды"
+  url = "/posts/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Теги"
+  url = "/tags/"
+  weight = 2
 
 [pagination]
   pagerSize = 10
@@ -16,15 +29,18 @@ enableRobotsTXT = true
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true       
+  ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  ShowToc = true               
-  comments = true             
-  listView = "card"            # карточки постов
+  ShowToc = true
+  comments = true             # пока без сервиса комментариев не появятся
+  listView = "card"
+  ShowPostDate = true
+  ShowViewMore = true
   ShowRecentPosts = true
   RecentPostsNumber = 6
   
   mainSections = ["posts"]
+  homeInfoParams = {}         # пустой → отключает старый home-info
 
 [params.cover]
   hidden = false
@@ -39,13 +55,6 @@ enableRobotsTXT = true
   disableCSS  = false
   disableJS   = false
   minifyOutput = true
-
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    name = "Гайды"
-    url = "/posts/"
-    weight = 1
 
 [taxonomies]
   tag = "tags"

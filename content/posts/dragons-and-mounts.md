@@ -10,6 +10,7 @@ cover:
   alt: "Дракон в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Зачем тебе маунт и дракон

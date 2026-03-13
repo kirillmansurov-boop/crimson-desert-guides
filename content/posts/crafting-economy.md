@@ -10,6 +10,7 @@ cover:
   alt: "Крафт в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Как работает крафт

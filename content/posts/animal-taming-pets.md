@@ -10,6 +10,7 @@ cover:
   alt: "Питомец в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Как завести первого питомца

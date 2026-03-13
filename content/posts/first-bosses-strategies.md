@@ -10,6 +10,7 @@ cover:
   alt: "Первый босс в Crimson Desert"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Первые два босса (до 5 часов)

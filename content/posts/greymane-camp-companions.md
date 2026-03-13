@@ -10,6 +10,7 @@ cover:
   alt: "Greymane Camp"
   hiddenInList: false
   hiddenInSingle: false
+  responsiveImages: true
 ---
 
 ## Зачем нужен лагерь
