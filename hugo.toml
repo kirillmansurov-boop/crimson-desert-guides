@@ -80,24 +80,26 @@ enableRobotsTXT = true
   anchor = "smart"
 
 [params.profileMode]
-  enabled = true                  # ← включает режим
-  title = "Crimson Desert Гайды и Секреты"  # большой заголовок
-  subtitle = "Свежие гайды, секреты прокачки, Abyss Artifacts, skill mimicry и Pywel. Релиз 19 марта 2026 — всё здесь!"  # подзаголовок
-  imageUrl = "/images/crimson-desert-featured.jpg"   # ← твоя главная картинка (большая, квадратная лучше)
+  enabled = true
+  title = "Crimson Desert Гайды и Секреты"
+  subtitle = "Свежие гайды, секреты прокачки, Abyss Artifacts, skill mimicry и Pywel. Релиз 19 марта 2026 — всё здесь!"
+  imageUrl = "/images/crimson-desert-featured.jpg"
   imageTitle = "Crimson Desert арт"
   imageWidth = 220
   imageHeight = 220
 
-  # кнопки под аватаркой (ссылки на разделы)
-  buttons:
-    - name: "Все гайды"
-      url: "/posts/"
-    - name: "Abyss Artifacts"
-      url: "/posts/?tag=abyss-artifacts"   # если теги настроены
-    - name: "Skill Mimicry"
-      url: "/posts/skill-mimicry-guide/"   # прямая ссылка на топ-гайд
+  [[params.profileMode.buttons]]
+    name = "Все гайды"
+    url = "/posts/"
 
-  # соцсети (опционально)
-  socialIcons:
-    - name: "telegram"
-      url: "https://t.me/Olefinsd
+  [[params.profileMode.buttons]]
+    name = "Abyss Artifacts"
+    url = "/posts/?tag=abyss-artifacts"
+
+  [[params.profileMode.buttons]]
+    name = "Skill Mimicry"
+    url = "/posts/skill-mimicry-guide/"
+
+  [[params.profileMode.socialIcons]]
+    name = "telegram"
+    url = "https://t.me/Olefinsd"
