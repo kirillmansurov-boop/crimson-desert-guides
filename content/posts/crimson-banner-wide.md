@@ -8,8 +8,6 @@ cover:
     hiddenInSingle: false
 ---
 
-![Обложка Crimson Desert](/images/crimson-banner-wide.jpg)
-
 Свежие гайды, секреты прокачки, Abyss Artifacts, skill mimicry и Pywel.
 
-Присылай полезную инфу на почту чтобы помочь нам!
+Делись своими впечатлениями. Видишь ошибку? Напиши в тг, игра новая исправлю.
