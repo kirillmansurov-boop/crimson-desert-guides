@@ -1,5 +1,6 @@
 ---
 title: "Crimson Desert: как не просрать первые 5 часов и сразу стать имбой"
+slug: "first-5-hours-tips"
 draft: false
 tags: ["crimson-desert", "гайд", "прокачка", "abyss-artifacts"]
 

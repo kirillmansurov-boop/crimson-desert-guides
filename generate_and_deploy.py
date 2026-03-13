@@ -1,117 +1,194 @@
+# generate_and_deploy.py
 import os
 import subprocess
 import datetime
+import argparse
+import sys
 
-def run(cmd_list, cwd="."):
-    """Универсальная функция запуска команд (без shell=True)"""
-    print(f"> {' '.join(cmd_list)}")
+# pip install python-slugify
+try:
+    from slugify import slugify
+except ImportError:
+    print("Ошибка: нужна библиотека 'python-slugify'")
+    print("Установи: pip install python-slugify")
+    sys.exit(1)
+
+OLLAMA_MODEL = "qwen2.5:14b"
+CONTENT_DIR = "content/posts"
+
+
+def run(cmd_list, cwd=".", capture=True):
+    print(f"> {' '.join(cmd_list)} (в {cwd})")
     try:
         result = subprocess.run(
             cmd_list,
             check=True,
             cwd=cwd,
-            capture_output=True,
-            text=True
+            capture_output=capture,
+            text=True,
+            encoding="utf-8"
         )
-        if result.stdout.strip():
+        if result.stdout and result.stdout.strip():
             print(result.stdout.strip())
-        if result.stderr.strip():
+        if result.stderr and result.stderr.strip():
             print("stderr:", result.stderr.strip())
+        return result
     except subprocess.CalledProcessError as e:
-        print(f"Ошибка при выполнении {' '.join(cmd_list)}")
-        print("Код выхода:", e.returncode)
-        if e.stdout:
-            print("stdout:", e.stdout.strip())
-        if e.stderr:
-            print("stderr:", e.stderr.strip())
+        print(f"ОШИБКА: {' '.join(cmd_list)} → код {e.returncode}")
+        if e.stdout: print("stdout:", e.stdout.strip())
+        if e.stderr: print("stderr:", e.stderr.strip())
         raise
 
-OLLAMA_MODEL = "qwen2.5:14b"
 
-def generate_guide(title, prompt_suffix=""):
-    # Делаем slug чище
-    slug = "".join(c for c in title.lower() if c.isalnum() or c in " -").replace(" ", "-")
-    md_path = f"content/posts/{slug}.md"
+def generate_guide(title: str, prompt_suffix: str = "", strict: bool = True) -> str | None:
+    os.makedirs(CONTENT_DIR, exist_ok=True)
 
-    prompt = f"""
-Ты — эксперт по Crimson Desert (игра вышла 19 марта 2026 от Pearl Abyss).
-Напиши подробный гайд на русском языке в стиле игрового блога.
-Заголовок: {title}
-Объём: 1800–3000 слов.
-Структура: введение → основные механики → советы → подводные камни → итог.
-Используй markdown: ##, ###, списки, **жирный**, `код`, > цитаты.
-{prompt_suffix}
+    slug_base = slugify(title, max_length=60, lowercase=True, separator="-")
+    if not slug_base:
+        slug_base = "guide-" + datetime.date.today().strftime("%Y%m%d")
+    slug = slug_base
 
-Обязательно в самом начале ответа добавь front matter в формате YAML (--- ... ---), без лишнего текста перед ним. Включи:
-- title: "{title}"
-- date: {datetime.date.today().isoformat()}
-- draft: false
-- description: короткое описание 1–2 предложения
-- tags: ["crimson-desert", "гайд", ...] — 3–5 тегов
-- cover:
-    image: "/images/{slug}.jpg"
-    alt: "Иллюстрация к гайду {title}"
-    hiddenInList: false
-    hiddenInSingle: false
+    md_filename = f"{slug}.md"
+    md_path = os.path.join(CONTENT_DIR, md_filename)
 
-Сразу после front matter пиши полный текст гайда.
-"""
-
-    # Самый надёжный способ на Windows — использовать Popen + explicit encoding
-    process = subprocess.Popen(
-        ["ollama", "run", OLLAMA_MODEL, prompt],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding="utf-8",
-        errors="replace",           # заменяет проблемные символы на ?
-        text=True
-    )
-
-    stdout, stderr = process.communicate()  # ждём завершения
-
-    if process.returncode != 0:
-        print("Ollama вернула ошибку (код возврата не 0):")
-        print(stderr)
-        raise RuntimeError(f"Ollama failed with code {process.returncode}")
-
-    full_output = (stdout or "").strip()
-
-    if not full_output:
-        print("Ollama вернула пустой ответ. Возможно, модель не загрузилась или промпт слишком большой.")
+    if os.path.exists(md_path):
+        print(f"Файл существует → пропуск: {md_path}")
         return None
 
-    with open(md_path, "w", encoding="utf-8") as f:
-        f.write(full_output)
+    cover_image = f"/images/{slug}.jpg"
+    today = datetime.date.today().isoformat()
 
-    print(f"Сгенерирован → {md_path}")
-    return md_path
+    # СТРОГИЙ ПРОМПТ — минимизация галлюцинаций
+    strict_rules = """
+СТРОГО ЗАПРЕЩЕНО:
+- Выдумывать любые локации, названия зон, боссов, NPC, предметов или механик, которых нет в реальной игре.
+- Придумывать "Темные Туннели", "Пустоши", "Молоко и Мед", любые вымышленные названия.
+- Говорить о бесконечном фарме мобов в одной зоне как в MMO.
+- Если факт не подтверждён ниже — пиши "Информация по этому аспекту пока отсутствует в доступных источниках" вместо выдумывания.
+
+СТРОГО РЕАЛЬНЫЕ ФАКТЫ о Crimson Desert (релиз 19 марта 2026, Pearl Abyss):
+- Действие происходит на континенте Pywel.
+- Нет классической системы уровней и XP-гринда.
+- Прогресс идёт ТОЛЬКО через Abyss Artifacts (фрагменты Абисса).
+- Abyss Artifacts дают:
+  - Увеличение базовых статов (health, stamina, attack, defense и т.д.).
+  - Разблокировку и улучшение узлов в уникальном skill tree персонажа.
+  - Иногда новые активные/пассивные способности или улучшение skill chaining.
+- Способы получения Abyss Artifacts (реальные в первые часы/дни):
+  - Исследование открытого мира Pywel: hidden locations, landmarks, разрушаемые объекты, подозрительные элементы окружения.
+  - Выполнение квестов (основной сюжет и побочные).
+  - Победа над боссами и элитными врагами.
+  - Находки в мире (в т.ч. связанные с Traces of the Abyss — следы Абисса, которые дают fast travel и часто рядом награды).
+  - Другие способы exploration (без спойлеров).
+- Статы артефактов могут быть положительными и отрицательными (RNG).
+- Основной фокус в первые 10–20 часов: исследование Pywel, активация Traces of the Abyss, выполнение ранних квестов, поиск скрытых наград.
+- Нет NPC по имени Virelia / Dome / Geodes в подтверждённых источниках на 13 марта 2026 — если это появится позже, обнови промпт.
+"""
+
+    prompt = f"""
+Ты — эксперт по Crimson Desert (релиз 19 марта 2026 от Pearl Abyss). 
+Отвечай ТОЛЬКО на основе реальных механик игры. Используй только факты из раздела СТРОГО РЕАЛЬНЫЕ ФАКТЫ выше.
+
+{strict_rules}
+
+Заголовок гайда: {title}
+Объём: 1800–3000 слов (или меньше, если информации мало — лучше короче, но правдиво).
+Структура: ## Введение → ## Основные механики Abyss Artifacts → ## Лучшие способы получения в первые 10 часов → ## Советы по оптимизации → ## Подводные камни и ошибки новичков → ## Итог.
+Используй markdown: ##, ###, нумерованные/маркированные списки, **жирный**, *курсив*, > цитаты.
+{prompt_suffix}
+
+Обязательно начни ответ с front matter в формате YAML (--- ... ---), без любого текста перед ним. Поля ровно такие:
+slug: "{slug}"
+title: "{title}"
+date: {today}
+draft: false
+description: Короткое описание 1–2 предложения на русском, без выдумок.
+tags: ["crimson-desert", "гайд", "abyss-artifacts", "первые-часы", "прогресс"] — добавь 1–3 релевантных тега
+cover:
+  image: "{cover_image}"
+  alt: "Иллюстрация к гайду {title}"
+  hiddenInList: false
+  hiddenInSingle: false
+
+Сразу после front matter (без пустых строк!) пиши полный текст гайда на русском языке.
+"""
+
+    print(f"Генерация: {title}")
+    print(f"Slug: {slug}")
+
+    try:
+        process = subprocess.Popen(
+            ["ollama", "run", OLLAMA_MODEL],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding="utf-8",
+            errors="replace",
+            text=True
+        )
+
+        stdout, stderr = process.communicate(input=prompt, timeout=900)  # 15 мин — для длинных гайдов
+
+        if process.returncode != 0:
+            print("Ollama ошибка:", stderr or "<нет stderr>")
+            return None
+
+        full_output = (stdout or "").strip()
+
+        if not full_output or len(full_output) < 800:
+            print("Ответ слишком короткий или пустой.")
+            return None
+
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write(full_output)
+
+        print(f"Готово → {md_path} ({len(full_output):,} символов)")
+        return md_path
+
+    except subprocess.TimeoutExpired:
+        print("Таймаут 15 мин — процесс убит.")
+        process.kill()
+        return None
+    except Exception as e:
+        print(f"Ошибка генерации: {e}")
+        return None
+
 
 def main():
-    # Можно менять здесь для тестов
-    title = "Где лучше фармить Abyss Artifacts в первые 10 часов Crimson Desert"
-    suffix = "Фокус на локации, оптимальные маршруты, риски и награды."
+    parser = argparse.ArgumentParser(description="Генератор гайдов Crimson Desert + деплой")
+    parser.add_argument("title", nargs="?", default=None, help="Заголовок гайда")
+    parser.add_argument("--suffix", default="", help="Доп. инструкция в промпт")
+    parser.add_argument("--strict", action="store_true", help="Максимально строгий режим (анти-галлюцинации)")
+    args = parser.parse_args()
 
-    generate_guide(title, suffix)
+    if not args.title:
+        title = "Где и как получать Abyss Artifacts в первые 10 часов Crimson Desert"
+        suffix = "Опирайся только на реальное исследование Pywel, квесты, боссов и скрытые находки. Без выдуманных зон."
+        print(f"Без заголовка → пример: {title}")
+    else:
+        title = args.title
+        suffix = args.suffix
 
-    # Билд сайта
+    generated = generate_guide(title, suffix, strict=args.strict)
+
+    if not generated:
+        print("Генерация провалилась → билд/деплой отменены.")
+        return
+
     run(["hugo", "--minify"])
 
-    # Git-часть с проверкой изменений
     run(["git", "add", "."])
 
-    status_result = subprocess.run(
-        ["git", "status", "--porcelain=v1"],
-        capture_output=True,
-        text=True
-    )
+    status = subprocess.run(["git", "status", "--porcelain=v1"], capture_output=True, text=True)
 
-    if status_result.stdout.strip():
-        commit_msg = f"Auto: новый гайд {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}"
+    if status.stdout.strip():
+        commit_msg = f"Auto: гайд «{title}» ({datetime.datetime.now().strftime('%Y-%m-%d %H:%M')})"
         run(["git", "commit", "-m", commit_msg])
         run(["git", "push", "origin", "main"])
-        print(f"Изменения закоммичены и запушены: {commit_msg}")
+        print("Запушено!")
     else:
-        print("Нет новых изменений после генерации — commit и push пропущены.")
+        print("Нет изменений → commit/push пропущен.")
+
 
 if __name__ == "__main__":
     main()

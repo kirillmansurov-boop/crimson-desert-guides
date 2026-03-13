@@ -1,5 +1,6 @@
 ---
 title: "Где лучше фармить Abyss Artifacts в первые 10 часов Crimson Desert"
+slug: "abyss-artifacts-farm-early"
 date: 2026-03-13
 draft: false
 description: "В этом гайде мы расскажем, где и как эффективно фармить Abyss Artifacts в начале игры Crimson Desert, чтобы начать сильную карьеру."

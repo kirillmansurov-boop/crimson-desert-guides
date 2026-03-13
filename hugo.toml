@@ -1,4 +1,4 @@
-baseURL = "/"                          # ← Самое важное! Только слеш, Cloudflare сам подставит домен
+baseURL = "/"
 languageCode = "ru-ru"
 title = "Crimson Desert Гайды и Секреты"
 theme = "PaperMod"
@@ -23,11 +23,10 @@ theme = "PaperMod"
   showRecentInHome = true
   showAllPostsInSection = true
 
-  # Разрешаем показ обложек в списках и на страницах постов
-  cover:
-    hiddenInList = false
-    hiddenInSingle = false
-    hidden = false
+  # Исправлено: параметры cover через точку
+  cover.hiddenInList   = false
+  cover.hiddenInSingle = false
+  cover.hidden         = false
 
   # Для лучшей совместимости с Cloudflare
   enableRobotsTXT = true
@@ -62,3 +61,11 @@ theme = "PaperMod"
   quality = 75
   resampleFilter = "lanczos"
   anchor = "smart"
+[minify]
+  disableHTML = false
+  disableXML  = false
+  disableJSON = true      # ← отключает минификацию только JSON, чтобы не ломался schema
+  disableCSS  = false
+  disableJS   = false
+  minifyOutput = true     # остальное минифицируется
+  
